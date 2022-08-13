@@ -1,0 +1,155 @@
+<!-- Created by Meetesh -->
+
+<!-- Created by Steve Nawa -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>get ElementBy id</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#next").click(function(){
+    $("#next").hide();
+      $("#monospace").hide();
+  });
+  $("#check").click(function(){
+   $("#next").show();
+    $("#monospace").show();
+  });
+});
+</script>
+
+<style>
+body{ 
+width: 100%;
+height: 60%;    
+text-align: left;     
+font-family: 'Poiret One', sans-serif; 
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(20,20,140,1) 35%, rgba(0,212,255,1) 100%);
+} 
+
+p,input,button {     
+font-size: 2em;
+}
+
+#fantasy{
+/* creates space and text can be shifted to the front */ 
+white-space: pre;
+font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<p id="serif"> Hello There! In this series, we'll take a look at the 'turn helper off/on' function.</p>
+<p id="cursive">..</p>
+<input type="text" id="sanserif" placeholder="enter answer.." />
+<button id="check" type="button" onclick="checkFunc()">Click Done</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="next" type="button" onclick="nextFunc()">Next</button>
+
+ 
+<p id="monospace"></p>
+
+<p id="numcount"></p>
+
+<br><br>
+<button id="helper" type="button" onclick="helperFunc()">Helper</button>
+
+<div id="fantasy">
+
+
+
+
+
+tremendous thanks to <a href="https://www.sololearn.com/profile/19113165/?ref=app">VCoder</a> for supporting and helping in creading this code
+</div>
+
+
+<script>
+    
+    const num1 = {"What is 3 x 4": "12", "What is 3 x 5": "15", "What is 3 x 6": "18", "What is 3 x 7": "21", "What is 3 x 8": "24", "Congratulations 🎆🎆🎆": 20},
+    countSet = {"🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 4, "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 5,
+    "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 6, "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 7, 
+    "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 8},
+        congrets = "🎈🎊🎊&nbsp;&nbsp;&nbsp;🎇🎇🎇&nbsp;&nbsp;&nbsp;🎇🎇🎇&nbsp;&nbsp;&nbsp;🎇🎇🎇&nbsp;&nbsp;&nbsp;🎊🎊🎈",
+        tryAgain = ["try again..❌❌❌", "Sorry try again..❌❌❌"],
+        nextBtn = document.getElementById("next"),
+        input = document.getElementById("sanserif"),
+        correction = document.getElementById("monospace"),
+        numcount = document.getElementById("numcount"),
+        question = document.getElementById("cursive");
+        helper = document.getElementById("helper")
+    
+    let i = -1;
+
+
+/*****************************************/
+
+    // CHANGE HERE
+    helper_switch = 1
+    
+/*****************************************/
+    
+    
+    function checkFunc() 
+    {
+        correction.innerHTML = input.value == Object.values(num1)[i] ? "correct!..✅✅✅" : tryAgain[Math.floor(Math.random()*tryAgain.length)];
+    }
+    
+    function nextFunc() 
+    {
+        if(i < Object.keys(num1).length - 1 && correction.innerHTML == "correct!..✅✅✅" || i == -1) question.innerHTML = Object.keys(num1)[++i];
+        
+        if(i == Object.keys(num1).length - 1) nextBtn.style.display = "none";input.value = '';correction.value = '';
+
+
+/*****************************************/
+        
+        // CHANGE HERE
+        // ADDED && helper_switch HERE
+        // SEE BETWEEN /***/ /***/
+        if(i < Object.keys(countSet).length /***/ && helper_switch /***/) numcount.innerHTML = Object.keys(countSet)[+i];
+
+/*****************************************/
+        if (i==4)
+        {
+            numcount.innerHTML = congrets;
+        }
+
+    }
+    nextFunc(); 
+
+
+
+    helper.onclick = function()
+    {
+
+/*****************************************/
+
+        // CHANGED IF CONDITION TO helper_switch
+        // INTERCHANGED IF AND ELSE STATEMENTS
+        if(helper_switch) /* If helper html is clicked */
+        {
+            numcount.innerHTML = "Helper Off";
+        } else
+        {
+            numcount.innerHTML = Object.keys(countSet)[+i];
+        }
+        
+        // ADDED THIS STATEMENT TO CHANGE helper_switch TO 0 OR 1 ALTERNATIVELY WHENEVER HELPER BUTTON IS CLICKED
+        helper_switch = 1-helper_switch
+    };
+    
+/*****************************************/
+</script>
+
+<!-- JESUS NATION -->
+
+</body>
+</html>

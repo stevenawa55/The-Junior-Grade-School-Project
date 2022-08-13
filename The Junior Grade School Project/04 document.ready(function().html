@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>get ElementBy id</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#next").click(function(){
+    $("#next").hide();
+      $("#monospace").hide();
+  });
+  $("#check").click(function(){
+   $("#next").show();
+    $("#monospace").show();
+  });
+});
+</script>
+
+</head>
+<body>
+
+<p id="serif"> Hello There! </p>
+<p id="cursive">..</p>
+<input type="text" id="sanserif" placeholder="enter answer.." />
+<button id="check" type="button" onclick="checkFunc()">Click Done</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="next" type="button" onclick="nextFunc()">Next</button>
+
+ 
+<p id="monospace"></p>
+
+<p id="demo"></p>
+
+<div id="fantasy">
+
+
+
+
+
+tremendous thanks to <a href="https://www.sololearn.com/profile/19113165/?ref=app">VCoder</a> for supporting and helping in creading this code
+</div>
+
+
+<script>
+    
+    const num1 = {"What is 3 x 3": "9", "What is 3 x 4": "12", "What is 3 x 5": "15", "What is 3 x 6": "18", "What is 3 x 7": "21", "What is 3 x 8": "24", 
+    "What is 3 x 9": "27", "What is 6 ÷ 2": "3", "What is 8 ÷ 2": "4", "What is 10 ÷ 2": "5", "What is 12 ÷ 2": "6", "What is 14 ÷ 2": "7", "What is 6 ÷ 3": "2", "What is 9 ÷ 3": "3", "What is 12 ÷ 3": "4", "What is 15 ÷ 3": "5", "What is 15 ÷ 3": "5", "Congratulations 🎆🎆🎆": 20},
+    countSet = {"🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 3, "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 4, "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 5,
+    "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 6, "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 7, 
+    "🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 8,"🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭&nbsp;&nbsp;&nbsp;🍭🍭🍭": 9, 
+    "\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]": 10, "\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]": 11, "\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]": 12, "\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]": 13, 
+    "\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]": 14, "\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭\]": 15, "\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]": 16, 
+    "\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]": 17, "\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]": 18, "\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]&nbsp;&nbsp;&nbsp;\[🍭🍭🍭\]": 19, "🎈🎊🎊&nbsp;&nbsp;&nbsp;🎇🎇🎇&nbsp;&nbsp;&nbsp;🎇🎇🎇&nbsp;&nbsp;&nbsp;🎇🎇🎇&nbsp;&nbsp;&nbsp;🎊🎊🎈": 19},
+        tryAgain = ["try again..❌❌❌", "Sorry try again..❌❌❌"],
+        nextBtn = document.getElementById("next"),
+        input = document.getElementById("sanserif"),
+        correction = document.getElementById("monospace"),
+        numcount = document.getElementById("demo"),
+        question = document.getElementById("cursive");
+    
+    let i = -1;
+    
+    
+    function checkFunc() 
+    {
+        correction.innerHTML = input.value == Object.values(num1)[i] ? "correct!..✅✅✅" : tryAgain[Math.floor(Math.random()*tryAgain.length)];
+    }
+    
+    function nextFunc() 
+    {
+        if(i < Object.keys(num1).length - 1 && correction.innerHTML == "correct!..✅✅✅" || i == -1) question.innerHTML = Object.keys(num1)[++i];
+        
+        if(i == Object.keys(num1).length - 1) nextBtn.style.display = "none";input.value = '';correction.value = '';
+        
+        if(i < Object.keys(countSet).length) numcount.innerHTML = Object.keys(countSet)[+i];
+        
+        
+        
+
+    }
+    nextFunc(); 
+
+</script>
+
+<!-- JESUS NATION -->
+
+</body>
+</html>
